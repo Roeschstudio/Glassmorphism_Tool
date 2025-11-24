@@ -120,4 +120,4 @@ If you have any questions or need help, please open an issue on GitHub.
 
 ---
 
-Made with ❤️ by [Your Name]
+Made with ❤️ by Christopher Roesch
