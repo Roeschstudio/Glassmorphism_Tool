@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+      sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-neon-blue focus:ring-opacity-50;
+  }
+
+  .gradient-bg {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gradient-bg::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle,
+      rgba(34, 211, 238, 0.1) 0%,
+      transparent 70%
+    );
+    animation: gradient-move 10s ease-in-out infinite;
+    pointer-events: none;
+  }
+
+  .slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #22d3ee, #0891b2);
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  .slider-thumb:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(34, 211, 238, 0.6);
+  }
+
+  .slider-track {
+    appearance: none;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+  }
+
+  .copy-button-glow {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .copy-button-glow::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(34, 211, 238, 0.4),
+      transparent
+    );
+    transition: left 0.5s;
+  }
+
+  .copy-button-glow:hover::before {
+    left: 100%;
+  }
+}
